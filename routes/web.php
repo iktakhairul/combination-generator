@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CombinationController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'home'])->name('/');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'test', 'as' => 'test.'], function () {
+    Route::get('/', [CombinationController::class, 'index'])->name('/');
+    Route::post('combination', [CombinationController::class, 'combination'])->name('combination');
 });
