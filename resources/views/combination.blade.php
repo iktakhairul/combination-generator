@@ -19,11 +19,21 @@
             <div class="form-group">
                 <label>String :</label>
                 <input type="text" class="form-control" name="string" id="string" value="{{ !empty($oldValue) ? $oldValue['string'] : old('string') }}">
+                @if ($errors->has('string'))
+                    <span class="text-danger">
+                        <b>*{{ $errors->first('string') }}</b>
+                    </span>
+                @endif
             </div>
 
             <div class="form-group">
                 <label>Number :</label>
                 <input type="number" class="form-control" name="number" id="number" value="{{ !empty($oldValue) ? $oldValue['number'] : old('number') }}">
+                @if ($errors->has('number'))
+                    <span class="text-danger">
+                        <b>*{{ $errors->first('number') }}</b>
+                    </span>
+                @endif
             </div>
 
             <input type="submit" class="btn btn-dark btn-block">
