@@ -16,7 +16,7 @@ class CombinationController extends Controller
     public function index()
     {
         $outputs = '';
-        return view('combination');
+        return view('combination', compact('outputs'));
     }
 
     /**
